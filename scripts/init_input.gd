@@ -1,3 +1,9 @@
+# Input are as follows
+# 0 -> move_left
+# 1 -> move_right
+# 2 -> wasd_jump
+# 3 -> wasd_attack
+
 extends Node
 
 # give player option to select desired bindings from the same keyboard - mainly for development.

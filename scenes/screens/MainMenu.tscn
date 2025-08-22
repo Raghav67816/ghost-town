@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://cf7ig5canevbi"]
+
+[ext_resource type="Texture2D" uid="uid://emjkthh18b2c" path="res://art/bg/background_layer_1.png" id="1_k0pmm"]
+[ext_resource type="Script" path="res://scenes/screens/main_menu.gd" id="1_omo11"]
+[ext_resource type="Texture2D" uid="uid://c8ger5eqqdhjh" path="res://art/bg/background_layer_2.png" id="2_ykydy"]
+[ext_resource type="Texture2D" uid="uid://cucnrxuscpq3w" path="res://art/bg/background_layer_3.png" id="3_gdtmo"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_omo11")
+
+[node name="MainBg" type="Sprite2D" parent="."]
+position = Vector2(575, 326)
+scale = Vector2(3.60625, 3.57778)
+texture = ExtResource("1_k0pmm")
+
+[node name="SecondaryBg" type="Sprite2D" parent="."]
+position = Vector2(570, 319)
+scale = Vector2(3.6375, 3.68889)
+texture = ExtResource("2_ykydy")
+
+[node name="ExtraBg" type="Sprite2D" parent="."]
+position = Vector2(570, 319)
+scale = Vector2(3.6375, 3.68889)
+texture = ExtResource("3_gdtmo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.5
+offset_top = -82.0
+offset_right = 107.5
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="StartGameBtn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Start Game"
+
+[node name="OptionsBtn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Options"
+
+[node name="ExitBtn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/StartGameBtn" to="." method="_on_start_game_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsBtn" to="." method="_on_options_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitBtn" to="." method="_on_exit_btn_pressed"]

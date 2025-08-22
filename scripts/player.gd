@@ -1,15 +1,12 @@
-# Input are as follows
-# 0 -> move_left
-# 1 -> move_right
-# 2 -> wasd_jump
-# 3 -> wasd_attack
-
-
 extends CharacterBody2D
 
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -350.0
+
+func _ready() -> void:
+	var playerName = $PlayerName
+	playerName.text = self.name
 
 @onready var anim = $AnimatedSprite2D
 
