@@ -9,4 +9,4 @@ func _on_options_btn_pressed() -> void:
 	
 
 func _on_exit_btn_pressed() -> void:
-	print("Exit")
+	get_tree().quit()
