@@ -5,13 +5,10 @@
 [ext_resource type="FontFile" uid="uid://bmsriflmactn6" path="res://art/Pixel Game.otf" id="1_msffx"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ggrti"]
-load_path = "res://.godot/imported/background_layer_1.png-fd5fef53df2fe8a804a8cc78dca3ef82.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bm65h"]
-load_path = "res://.godot/imported/background_layer_2.png-87b25ec82dcd8908443728495f92eeee.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_50ljr"]
-load_path = "res://.godot/imported/background_layer_3.png-fe148b2bdfed9929c80f015b94c54595.ctex"
 
 [node name="ConfigPlayer" type="Control"]
 layout_mode = 3

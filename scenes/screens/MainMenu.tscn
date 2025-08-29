@@ -1,10 +1,27 @@
-[gd_scene load_steps=6 format=4 uid="uid://cf7ig5canevbi"]
+[gd_scene load_steps=8 format=4 uid="uid://cf7ig5canevbi"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_omo11"]
 [ext_resource type="TileSet" uid="uid://dxan78bq38vy4" path="res://tilemaps/ground.tres" id="2_d8w4o"]
 [ext_resource type="Texture2D" uid="uid://b5ehknry6c5uy" path="res://art/bg/bg.png" id="2_jhs7a"]
+[ext_resource type="Theme" uid="uid://dxqfvgk3f6y5b" path="res://scenes/screens/Theme.tres" id="3_frbke"]
 [ext_resource type="TileSet" uid="uid://dj28at3qv1hgm" path="res://tilemaps/props.tres" id="3_qpscf"]
 [ext_resource type="FontFile" uid="uid://bgkjhcjee6ljw" path="res://art/KarmaticArcade-6Yrp1.ttf" id="4_s0lo5"]
+
+[sub_resource type="Environment" id="Environment_52uux"]
+background_mode = 3
+ambient_light_energy = 0.0
+tonemap_mode = 2
+tonemap_white = 5.0
+ssr_fade_out = 39.3966
+ssao_sharpness = 0.0
+glow_intensity = 0.0
+glow_strength = 2.0
+glow_blend_mode = 1
+fog_mode = 1
+fog_density = 1.0
+adjustment_enabled = true
+adjustment_brightness = 1.12
+adjustment_contrast = 1.5
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -38,11 +55,13 @@ theme_override_constants/separation = 10
 [node name="StartGameBtn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("3_frbke")
 text = "Start Game"
 
 [node name="OptionsBtn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("3_frbke")
 text = "Options"
 
 [node name="Layers" type="Node2D" parent="."]
@@ -75,22 +94,26 @@ tile_set = ExtResource("3_qpscf")
 tile_map_data = PackedByteArray("AAAeACEAAAAKABUAAAAeACIAAAAKABYAAAAeACMAAAAKABcAAAAfACEAAAALABUAAAAfACIAAAALABYAAAAfACMAAAALABcAAAAgACEAAAAMABUAAAAgACIAAAAMABYAAAAgACMAAAAMABcAAAAhACEAAAANABUAAAAhACIAAAANABYAAAAhACMAAAANABcAAAAiACEAAAAOABUAAAAiACIAAAAOABYAAAAiACMAAAAOABcAAAAjACEAAAAPABUAAAAjACIAAAAPABYAAAAjACMAAAAPABcAAAAsAB4AAAACAAoAAAAsAB8AAAACAAsAAAAsACAAAAACAAwAAAAsACEAAAACAA0AAAAsACMAAAACAA8AAAAtAB4AAAADAAoAAAAtAB8AAAADAAsAAAAtACAAAAADAAwAAAAtACEAAAADAA0AAAAtACIAAAADAA4AAAAtACMAAAADAA8AAAAuAB4AAAAEAAoAAAAuAB8AAAAEAAsAAAAuACAAAAAEAAwAAAAuACEAAAAEAA0AAAAuACIAAAAEAA4AAAAuACMAAAAEAA8AAAAvAB4AAAAFAAoAAAAvAB8AAAAFAAsAAAAvACAAAAAFAAwAAAAvACEAAAAFAA0AAAAvACIAAAAFAA4AAAAvACMAAAAFAA8AAAAwAB4AAAAGAAoAAAAwAB8AAAAGAAsAAAAwACAAAAAGAAwAAAAwACEAAAAGAA0AAAAwACIAAAAGAA4AAAAwACMAAAAGAA8AAAAxAB4AAAAHAAoAAAAxAB8AAAAHAAsAAAAxACAAAAAHAAwAAAAxACMAAAAHAA8AAAAyACIAAAAIAA4AAAAyACMAAAAIAA8AAAAzACIAAAAJAA4AAAAzACMAAAAJAA8AAAAbAB4AAAAjAA4AAAAbAB8AAAAjAA8AAAAcAB4AAAAkAA4AAAAcAB8AAAAkAA8AAAAcACAAAAAkABAAAAAcACEAAAAkABEAAAAcACIAAAAkABIAAAAcACMAAAAkABMAAAAdAB4AAAAlAA4AAAAdAB8AAAAlAA8AAAAdACAAAAAlABAAAAAdACEAAAAlABEAAAAdACIAAAAlABIAAAAdACMAAAAlABMAAAAeAB4AAAAmAA4AAAAeAB8AAAAmAA8AAAA=")
 tile_set = ExtResource("3_qpscf")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 72.0
-offset_bottom = 118.0
-grow_horizontal = 2
-theme_override_fonts/normal_font = ExtResource("4_s0lo5")
-theme_override_font_sizes/normal_font_size = 40
-text = "									GHOST TOWN"
-fit_content = true
-scroll_active = false
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(578, 324)
 zoom = Vector2(1.1, 1.1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -208.0
+offset_top = 63.0
+offset_right = 213.0
+offset_bottom = 132.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("4_s0lo5")
+theme_override_font_sizes/normal_font_size = 50
+text = "ghost town"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_52uux")
 
 [connection signal="pressed" from="VBoxContainer/StartGameBtn" to="." method="_on_start_game_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsBtn" to="." method="_on_options_btn_pressed"]
