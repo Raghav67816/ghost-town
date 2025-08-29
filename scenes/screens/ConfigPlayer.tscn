@@ -3,9 +3,15 @@
 [ext_resource type="Script" path="res://scripts/config_player.gd" id="1_3fx2w"]
 [ext_resource type="PackedScene" uid="uid://crrkryowd5yo4" path="res://components/AvatarSelector.tscn" id="1_12jqw"]
 [ext_resource type="FontFile" uid="uid://bmsriflmactn6" path="res://art/Pixel Game.otf" id="1_msffx"]
-[ext_resource type="Texture2D" uid="uid://emjkthh18b2c" path="res://art/bg/background_layer_1.png" id="1_nmlpu"]
-[ext_resource type="Texture2D" uid="uid://c8ger5eqqdhjh" path="res://art/bg/background_layer_2.png" id="2_pqs2l"]
-[ext_resource type="Texture2D" uid="uid://cucnrxuscpq3w" path="res://art/bg/background_layer_3.png" id="3_u44oj"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ggrti"]
+load_path = "res://.godot/imported/background_layer_1.png-fd5fef53df2fe8a804a8cc78dca3ef82.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bm65h"]
+load_path = "res://.godot/imported/background_layer_2.png-87b25ec82dcd8908443728495f92eeee.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_50ljr"]
+load_path = "res://.godot/imported/background_layer_3.png-fe148b2bdfed9929c80f015b94c54595.ctex"
 
 [node name="ConfigPlayer" type="Control"]
 layout_mode = 3
@@ -19,17 +25,17 @@ script = ExtResource("1_3fx2w")
 [node name="MainBg" type="Sprite2D" parent="."]
 position = Vector2(575, 326)
 scale = Vector2(3.60625, 3.57778)
-texture = ExtResource("1_nmlpu")
+texture = SubResource("CompressedTexture2D_ggrti")
 
 [node name="SecondaryBg" type="Sprite2D" parent="."]
 position = Vector2(570, 319)
 scale = Vector2(3.6375, 3.68889)
-texture = ExtResource("2_pqs2l")
+texture = SubResource("CompressedTexture2D_bm65h")
 
 [node name="ExtraBg" type="Sprite2D" parent="."]
 position = Vector2(570, 319)
 scale = Vector2(3.6375, 3.68889)
-texture = ExtResource("3_u44oj")
+texture = SubResource("CompressedTexture2D_50ljr")
 
 [node name="Heading" type="RichTextLabel" parent="."]
 layout_mode = 1

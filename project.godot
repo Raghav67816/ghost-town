@@ -25,6 +25,10 @@ PlayerconfigAutoload="*res://scripts/playerconfig_autoload.gd"
 
 settings/stdout/print_fps=true
 
+[display]
+
+window/stretch/mode="viewport"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")

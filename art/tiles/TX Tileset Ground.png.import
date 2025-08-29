@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bglijfaxk5h1i"
-path="res://.godot/imported/Canteen.png-8d600650d4305cb5086b13810bfb1373.ctex"
+uid="uid://b00e3uiccpke0"
+path="res://.godot/imported/TX Tileset Ground.png-e68aa6117d94af39653ee116fb8c9011.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/shop/Canteen.png"
-dest_files=["res://.godot/imported/Canteen.png-8d600650d4305cb5086b13810bfb1373.ctex"]
+source_file="res://art/tiles/TX Tileset Ground.png"
+dest_files=["res://.godot/imported/TX Tileset Ground.png-e68aa6117d94af39653ee116fb8c9011.ctex"]
 
 [params]
 
