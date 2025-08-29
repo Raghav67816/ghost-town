@@ -4,10 +4,6 @@ extends CharacterBody2D
 const SPEED = 150.0
 const JUMP_VELOCITY = -350.0
 
-func _ready() -> void:
-	var playerName = $PlayerName
-	playerName.text = self.name
-
 @onready var anim = $AnimatedSprite2D
 
 var is_attacking = false
@@ -24,17 +20,28 @@ func set_binding(_bindings: Dictionary, player_name: String, binding_id: String)
 	
 	player_bindings[player_name] = _bindings
 	
-	for action in player_bindings[self.name].keys():
+	# set player name texts
+	var player_name_label = $PlayerName
+	player_name_label.text = player_name
+	
+	for action in player_bindings[player_name].keys():
 		var action_name = self.name + "_" + binding_id + "_" + action
 		player_actions[action] = action_name
 		
 		if InputMap.has_action(action_name):
 			InputMap.erase_action(action_name)
 		
-		InputMap.add_action(action_name)
-		var evkey = InputEventKey.new()
-		evkey.physical_keycode = player_bindings[self.name][action]
-		InputMap.action_add_event(action_name, evkey)
+		if action == "attack" and player_bindings[player_name]['attack'] == MOUSE_BUTTON_LEFT:
+			var mouse_attack_event = InputEventMouseButton.new()
+			mouse_attack_event.button_index = MOUSE_BUTTON_LEFT
+			InputMap.add_action(action_name)
+			InputMap.action_add_event(action_name, mouse_attack_event)
+			
+		else:
+			InputMap.add_action(action_name)
+			var evkey = InputEventKey.new()
+			evkey.physical_keycode = player_bindings[player_name][action]
+			InputMap.action_add_event(action_name, evkey)
 		
 	
 # handles player movement with animations

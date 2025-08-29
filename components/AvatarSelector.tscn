@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://crrkryowd5yo4"]
+[gd_scene load_steps=6 format=3 uid="uid://crrkryowd5yo4"]
 
+[ext_resource type="Script" path="res://scripts/avatar_selector.gd" id="1_cerhn"]
 [ext_resource type="Texture2D" uid="uid://bb20ht7qycnxw" path="res://images/avatars/default player.png" id="1_wmwy2"]
 [ext_resource type="Texture2D" uid="uid://clb0bfjhovl82" path="res://images/icons/arrow-left.svg" id="2_31rlp"]
 [ext_resource type="Texture2D" uid="uid://c8ared6r3424m" path="res://images/icons/arrow-right.svg" id="2_obui1"]
+[ext_resource type="FontFile" uid="uid://bmsriflmactn6" path="res://art/Pixel Game.otf" id="4_lim7v"]
 
 [node name="AvatarSelector" type="Control"]
 layout_mode = 3
@@ -11,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_cerhn")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -55,23 +58,24 @@ icon_alignment = 1
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Player1Name" type="TextEdit" parent="VBoxContainer2/VBoxContainer"]
+[node name="PlayerName" type="TextEdit" parent="VBoxContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("4_lim7v")
+theme_override_font_sizes/font_size = 25
 placeholder_text = "Enter Player Name"
 scroll_fit_content_height = true
 
-[node name="OptionButton" type="OptionButton" parent="VBoxContainer2/VBoxContainer"]
+[node name="InputMethod" type="OptionButton" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
-selected = 0
-item_count = 3
-popup/item_0/text = "Select Input Method"
-popup/item_0/id = 2
-popup/item_1/text = "WASD"
-popup/item_2/text = "ARROWS"
-popup/item_2/id = 1
+theme_override_fonts/font = ExtResource("4_lim7v")
+theme_override_font_sizes/font_size = 25
 
 [node name="SelectBtn" type="Button" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_lim7v")
+theme_override_font_sizes/font_size = 25
 text = "Select"
+
+[connection signal="pressed" from="VBoxContainer2/VBoxContainer/SelectBtn" to="." method="_on_select_btn_pressed"]

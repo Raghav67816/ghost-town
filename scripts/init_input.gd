@@ -22,10 +22,3 @@ var keyboard_bindings = {
 		"attack": MOUSE_BUTTON_LEFT
 	}
 }
-
-func _ready() -> void:
-	var player1 = get_node("Player1")
-	var player2 = get_node("Player2")
-	
-	player1.set_binding(keyboard_bindings['wasd'], player1.name, 'wasd')
-	player2.set_binding(keyboard_bindings['arrows'], player2.name, 'arrow')

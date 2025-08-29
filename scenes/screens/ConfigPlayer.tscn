@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpeqjkjt1p4hs"]
+[gd_scene load_steps=7 format=3 uid="uid://cpeqjkjt1p4hs"]
 
+[ext_resource type="Script" path="res://scripts/config_player.gd" id="1_3fx2w"]
 [ext_resource type="PackedScene" uid="uid://crrkryowd5yo4" path="res://components/AvatarSelector.tscn" id="1_12jqw"]
+[ext_resource type="FontFile" uid="uid://bmsriflmactn6" path="res://art/Pixel Game.otf" id="1_msffx"]
+[ext_resource type="Texture2D" uid="uid://emjkthh18b2c" path="res://art/bg/background_layer_1.png" id="1_nmlpu"]
+[ext_resource type="Texture2D" uid="uid://c8ger5eqqdhjh" path="res://art/bg/background_layer_2.png" id="2_pqs2l"]
+[ext_resource type="Texture2D" uid="uid://cucnrxuscpq3w" path="res://art/bg/background_layer_3.png" id="3_u44oj"]
 
 [node name="ConfigPlayer" type="Control"]
 layout_mode = 3
@@ -9,23 +14,39 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_3fx2w")
+
+[node name="MainBg" type="Sprite2D" parent="."]
+position = Vector2(575, 326)
+scale = Vector2(3.60625, 3.57778)
+texture = ExtResource("1_nmlpu")
+
+[node name="SecondaryBg" type="Sprite2D" parent="."]
+position = Vector2(570, 319)
+scale = Vector2(3.6375, 3.68889)
+texture = ExtResource("2_pqs2l")
+
+[node name="ExtraBg" type="Sprite2D" parent="."]
+position = Vector2(570, 319)
+scale = Vector2(3.6375, 3.68889)
+texture = ExtResource("3_u44oj")
 
 [node name="Heading" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -224.0
-offset_top = 30.0
-offset_right = 225.0
-offset_bottom = 99.0
+offset_left = -155.0
+offset_top = 46.0
+offset_right = 160.0
+offset_bottom = 115.0
 grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("1_msffx")
 theme_override_font_sizes/normal_font_size = 40
 text = "SELECT YOUR AVATARS"
 fit_content = true
 
 [node name="VBoxContainer" type="HBoxContainer" parent="."]
-clip_contents = true
 custom_minimum_size = Vector2(650, 300)
 layout_mode = 1
 anchors_preset = 8
@@ -48,3 +69,6 @@ size_flags_horizontal = 4
 [node name="AvatarSelector2" parent="VBoxContainer" instance=ExtResource("1_12jqw")]
 layout_mode = 2
 size_flags_horizontal = 4
+
+[connection signal="avatar_selected" from="VBoxContainer/AvatarSelector" to="." method="_on_avatar_selector_avatar_selected"]
+[connection signal="avatar_selected" from="VBoxContainer/AvatarSelector2" to="." method="_on_avatar_selector_2_avatar_selected"]
