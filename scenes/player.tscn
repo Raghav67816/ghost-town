@@ -291,6 +291,7 @@ radius = 14.0357
 
 [node name="CharacterBody" type="CharacterBody2D"]
 position = Vector2(4, 8)
+platform_floor_layers = 4294967041
 script = ExtResource("1_6nw7k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
