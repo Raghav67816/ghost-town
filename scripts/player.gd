@@ -1,13 +1,17 @@
-extends CharacterBody2D
-
+extends RigidBody2D
 
 const SPEED = 150.0
-const JUMP_VELOCITY = -350.0
+const JUMP_FORCE = -900.0
 
 @onready var anim = $AnimatedSprite2D
 @onready var collision_shape = $CollisionShape2D
+@onready var ray = $RayCast2D
 
 var is_attacking = false
+
+func _ready() -> void:
+	set_mass(50.0)
+	anim.play("idle")
 
 var player_actions = {
 	"move_left": "",
@@ -16,12 +20,10 @@ var player_actions = {
 	"attack": ""
 }
 var player_bindings = {}
-	
+
 func set_binding(_bindings: Dictionary, player_name: String, binding_id: String):
-	
 	player_bindings[player_name] = _bindings
 	
-	# set player name texts
 	var player_name_label = $PlayerName
 	player_name_label.text = player_name
 	
@@ -43,59 +45,51 @@ func set_binding(_bindings: Dictionary, player_name: String, binding_id: String)
 			var evkey = InputEventKey.new()
 			evkey.physical_keycode = player_bindings[player_name][action]
 			InputMap.action_add_event(action_name, evkey)
-		
+
+func _is_on_floor() -> bool:
+	if ray.is_colliding():
+		var collider = ray.get_collider()
+		if collider and (collider is StaticBody2D or collider is TileMap):
+			return true
+	return false
+
+
+func jump():
+	linear_velocity.y = 0
+	apply_central_impulse(Vector2(0, JUMP_FORCE))
+
+func _physics_process(delta: float) -> void:
+	var velocity = Vector2.ZERO
 	
-# handles player movement with animations
-func handle_move(direction):
-	if is_attacking:
-		return
+	if Input.is_action_pressed(player_actions["move_left"]):
+		apply_central_force(Vector2(-SPEED, 0))
+		anim.play("run")
+		$AnimatedSprite2D.flip_h = true
 	
-	if is_on_floor() and !is_attacking:
-			
-		if direction == -1: # left
-			anim.flip_h = true
-			anim.play("run")
-		elif direction == 1: # right
-			anim.flip_h = false
-			anim.play("run")
-			
-		elif direction == 0:
-			anim.play("idle")
-
-		
-		if direction:
-			velocity.x = direction * SPEED
-		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
-			
-	else:
-		if velocity.y < 0 and !is_attacking:
-			anim.play("jump_start")
-		else:
-			anim.play("jump_end")
+	elif Input.is_action_pressed(player_actions["move_right"]):
+		apply_central_force(Vector2(SPEED, 0))
+		anim.play("run")
+		$AnimatedSprite2D.flip_h = false
+	
+	elif not is_attacking and _is_on_floor():
+		anim.play("idle")
 
 
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed(player_actions['attack']) and is_on_floor():
+	if Input.is_action_just_pressed(player_actions["attack"]) and not is_attacking:
 		is_attacking = true
 		anim.play("attack")
 
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed(player_actions['jump']) and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		
-	var direction := Input.get_axis(player_actions['move_left'], player_actions['move_right'])
-	handle_move(direction)
-			
-	move_and_slide()
+	if Input.is_action_just_pressed(player_actions["jump"]) and not is_attacking:
+		if _is_on_floor():
+			jump()
+			anim.play("jump_start")
 
 
-func _on_animation_finished() -> void:
+	if linear_velocity.y > 0.1 and not _is_on_floor():
+		anim.play("jump_end")
+
+func _on_animated_sprite_2d_animation_finished() -> void:
 	if anim.animation == "attack":
-		print("attack finished")
 		is_attacking = false
+		if _is_on_floor():
+			anim.play("idle")

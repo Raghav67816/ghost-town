@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cobxvgpevyqtx"]
+[gd_scene load_steps=3 format=3 uid="uid://bebft6jtj3fss"]
 
 [ext_resource type="Script" path="res://scripts/rope.gd" id="1_8qq8g"]
-[ext_resource type="PackedScene" uid="uid://b44djg2j6wdkr" path="res://components/RopeSegment.tscn" id="1_d4gbt"]
+[ext_resource type="PackedScene" uid="uid://dm57sj2ppv41b" path="res://components/RopeSegment.tscn" id="1_d4gbt"]
 
 [node name="Rope" type="RigidBody2D"]
 script = ExtResource("1_8qq8g")
