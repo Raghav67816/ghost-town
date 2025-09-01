@@ -286,20 +286,21 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_uynro"]
-radius = 14.0357
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iws1g"]
+size = Vector2(20, 48)
 
 [node name="RigidBody2D" type="RigidBody2D"]
 position = Vector2(4, 8)
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 10)
 script = ExtResource("1_6nw7k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_i6hd6")
-animation = &"idle"
+animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 11)
-shape = SubResource("CircleShape2D_uynro")
+shape = SubResource("RectangleShape2D_iws1g")
 
 [node name="PlayerName" type="RichTextLabel" parent="."]
 offset_left = -18.0
@@ -311,7 +312,7 @@ text = "Player 1"
 fit_content = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(-1, 46)
+target_position = Vector2(1, 30)
 
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]
