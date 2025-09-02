@@ -7,10 +7,11 @@ radius = 3.0
 
 [node name="RopeSegment" type="RigidBody2D"]
 collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_gpib3")
 
-[node name="Icon" type="Sprite2D" parent="."]
+[node name="Icon" type="Sprite2D" parent="CollisionShape2D"]
 scale = Vector2(0.0425986, 0.171252)
 texture = ExtResource("1_adl7p")

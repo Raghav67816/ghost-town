@@ -1,13 +1,14 @@
-[gd_scene load_steps=11 format=4 uid="uid://cbtouodl81vpd"]
+[gd_scene load_steps=12 format=4 uid="uid://cbtouodl81vpd"]
 
 [ext_resource type="Script" path="res://scripts/player_setup.gd" id="1_4ikys"]
 [ext_resource type="TileSet" uid="uid://mqbiexlehuju" path="res://tilemaps/bg_mud.tres" id="1_f8jx3"]
 [ext_resource type="Texture2D" uid="uid://dp3g7xi3tqa08" path="res://art/bg/Background.png" id="1_lxeod"]
-[ext_resource type="PackedScene" uid="uid://dhagsqqdis5tk" path="res://scenes/player.tscn" id="3_fvikv"]
 [ext_resource type="TileSet" uid="uid://bjpiiuq8e7ttk" path="res://tilemaps/green trees.tres" id="4_0kga1"]
 [ext_resource type="TileSet" uid="uid://cx36faafopjr8" path="res://tilemaps/rocks.tres" id="5_mvoex"]
 [ext_resource type="TileSet" uid="uid://64tgbfr41tue" path="res://tilemaps/yellow trees.tres" id="5_svpfj"]
-[ext_resource type="PackedScene" uid="uid://bebft6jtj3fss" path="res://components/Rope.tscn" id="8_bupdv"]
+[ext_resource type="PackedScene" uid="uid://dhagsqqdis5tk" path="res://components/player.tscn" id="7_a0j7u"]
+[ext_resource type="PackedScene" uid="uid://bebft6jtj3fss" path="res://components/Rope.tscn" id="8_1lfo8"]
+[ext_resource type="Script" path="res://scripts/rope.gd" id="9_ko03k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0rebc"]
 texture = ExtResource("1_lxeod")
@@ -564,26 +565,23 @@ tile_map_data = PackedByteArray("AADc/wQAAAAAAAAAAADc/wUAAAAAAAEAAADc/wYAAAAAAAI
 tile_set = ExtResource("1_f8jx3")
 collision_visibility_mode = 1
 
-[node name="Player2" parent="." instance=ExtResource("3_fvikv")]
-position = Vector2(4, 47)
-disable_mode = 2
-collision_mask = 3
-lock_rotation = true
-
-[node name="Camera2D" type="Camera2D" parent="Player2"]
-zoom = Vector2(2, 2)
-limit_smoothed = true
-
-[node name="Player1" parent="." instance=ExtResource("3_fvikv")]
-position = Vector2(-205, 45)
-disable_mode = 2
-collision_mask = 3
+[node name="Player1" parent="." instance=ExtResource("7_a0j7u")]
+position = Vector2(43, 8)
 lock_rotation = true
 
 [node name="Camera2D" type="Camera2D" parent="Player1"]
 zoom = Vector2(2, 2)
-limit_smoothed = true
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
 
-[node name="Rope" parent="." instance=ExtResource("8_bupdv")]
-position = Vector2(-174, 42)
+[node name="Rope" parent="." instance=ExtResource("8_1lfo8")]
 rotation = -1.5708
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("9_ko03k")
+node_a_path = NodePath("../Player1")
+node_b_path = NodePath("../Player2")
+
+[node name="Player2" parent="." instance=ExtResource("7_a0j7u")]
+position = Vector2(245, 8)
+lock_rotation = true

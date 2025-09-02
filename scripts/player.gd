@@ -1,7 +1,7 @@
 extends RigidBody2D
 
-const SPEED = 1500.0
-const JUMP_FORCE = -900.0
+const SPEED = 2500.0
+const JUMP_FORCE = -2000.0
 
 @onready var anim = $AnimatedSprite2D
 @onready var collision_shape = $CollisionShape2D
