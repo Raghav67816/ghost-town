@@ -10,8 +10,8 @@
 [sub_resource type="Environment" id="Environment_52uux"]
 background_mode = 3
 ambient_light_energy = 0.0
-tonemap_mode = 2
-tonemap_white = 5.0
+tonemap_mode = 1
+tonemap_white = 16.0
 ssr_fade_out = 39.3966
 ssao_sharpness = 0.0
 glow_intensity = 0.0
@@ -98,7 +98,7 @@ tile_set = ExtResource("3_qpscf")
 position = Vector2(578, 324)
 zoom = Vector2(1.1, 1.1)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="Title" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
