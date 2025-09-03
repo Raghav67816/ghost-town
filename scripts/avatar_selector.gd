@@ -25,7 +25,7 @@ func _on_select_btn_pressed() -> void:
 	var _player_name = $VBoxContainer2/VBoxContainer/PlayerName.text
 	var _input_method = input_method.get_item_text(input_method.get_selected_id())
 	
-	emit_signal("avatar_selected", _player_name, "default", _input_method)
+	emit_signal("avatar_selected", _player_name, sprites[default_avataar_idx], _input_method)
 
 
 func _on_next_btn_pressed() -> void:

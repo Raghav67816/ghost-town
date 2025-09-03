@@ -6,6 +6,7 @@ const JUMP_FORCE = -2000.0
 @onready var anim = $AnimatedSprite2D
 @onready var collision_shape = $CollisionShape2D
 @onready var ray = $RayCast2D
+@onready var player_sprite = $AnimatedSprite2D
 
 var is_attacking = false
 
@@ -46,6 +47,9 @@ func set_binding(_bindings: Dictionary, player_name: String, binding_id: String)
 			evkey.physical_keycode = player_bindings[player_name][action]
 			InputMap.action_add_event(action_name, evkey)
 			
+func set_player_avataar(sprite_frame):
+	player_sprite.sprite_frames = load(sprite_frame)
+
 func _is_on_floor() -> bool:
 	if ray.is_colliding():
 		var collider = ray.get_collider()

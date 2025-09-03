@@ -14,7 +14,7 @@ script = ExtResource("1_6nw7k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_j33w4")
-animation = &"attack"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_iws1g")
@@ -31,5 +31,5 @@ fit_content = true
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(1, 30)
 
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]

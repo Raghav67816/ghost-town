@@ -7,14 +7,14 @@ func validate() -> String:
 		return "Both players must have unique names."
 	if config['Player1']['input_method'] == config['Player2']['input_method']:
 		return "Please select unique input methods."
-	#if config['Player1']['avatar'] == config['Player2']['avatar']:
-		#return "Please select unique avatars."
+	if config['Player1']['avataar'] == config['Player2']['avataar']:
+		return "Please select unique avatars."
 	return ""
 
 
 func is_configured() -> bool:
 	for player in config.values():
-		if player['name'] == "" or player['input_method'] == "" or player['avatar'] == "":
+		if player['name'] == "" or player['input_method'] == "" or player['avataar'] == "":
 			return false
 	return true
 
@@ -34,7 +34,7 @@ func try_start_game():
 func _on_avatar_selector_avatar_selected(player_name, avatar, input_method):
 	config["Player1"]['name'] = player_name
 	config['Player1']['input_method'] = input_method
-	config['Player1']['avatar'] = avatar
+	config['Player1']['avataar'] = avatar
 
 	print("Player 1 configured")
 	
@@ -44,7 +44,7 @@ func _on_avatar_selector_avatar_selected(player_name, avatar, input_method):
 func _on_avatar_selector_2_avatar_selected(player_name, avatar, input_method):
 	config["Player2"]['name'] = player_name
 	config['Player2']['input_method'] = input_method
-	config['Player2']['avatar'] = avatar
+	config['Player2']['avataar'] = avatar
 	
 	print("Player2 configured")
 	
