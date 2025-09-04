@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dm57sj2ppv41b"]
 
-[ext_resource type="Texture2D" uid="uid://bw7f4aqusgbj1" path="res://icon.svg" id="1_adl7p"]
+[ext_resource type="Texture2D" uid="uid://y0hmjxvht17m" path="res://art/chain.png" id="1_0j6nr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gpib3"]
 radius = 3.0
@@ -12,6 +12,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_gpib3")
 
-[node name="Icon" type="Sprite2D" parent="CollisionShape2D"]
-scale = Vector2(0.0425986, 0.171252)
-texture = ExtResource("1_adl7p")
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+position = Vector2(2.5, -9.53674e-07)
+scale = Vector2(1.15625, 1.8125)
+texture = ExtResource("1_0j6nr")

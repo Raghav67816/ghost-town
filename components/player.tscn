@@ -32,5 +32,5 @@ fit_content = true
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(1, 30)
 
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]

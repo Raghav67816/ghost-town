@@ -20,6 +20,8 @@ config/icon="res://icon.svg"
 
 InitInput="*res://scripts/init_input.gd"
 PlayerconfigAutoload="*res://scripts/playerconfig_autoload.gd"
+Constants="*res://scripts/constants.gd"
+Utils="*res://scripts/utils.gd"
 
 [display]
 

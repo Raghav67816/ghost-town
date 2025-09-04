@@ -77,7 +77,6 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 			
 	if Input.is_action_just_pressed(player_actions['jump']) and is_attacking == false:
 		if _is_on_floor():
-			print("Jumping")
 			anim.play("jump_start")
 			linear_velocity.y = -1500
 			

@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://crrkryowd5yo4"]
+[gd_scene load_steps=8 format=3 uid="uid://crrkryowd5yo4"]
 
 [ext_resource type="Script" path="res://scripts/avatar_selector.gd" id="1_cerhn"]
 [ext_resource type="Theme" uid="uid://dxqfvgk3f6y5b" path="res://scenes/screens/Theme.tres" id="2_xagrr"]
 [ext_resource type="Texture2D" uid="uid://dr0eds7o3u6jk" path="res://images/icons/arrow left.png" id="3_ooxca"]
 [ext_resource type="SpriteFrames" uid="uid://u4i0jn2pcmvw" path="res://sprite frames/blue idle.tres" id="4_7v5vh"]
-[ext_resource type="FontFile" uid="uid://bmsriflmactn6" path="res://art/Pixel Game.otf" id="4_lim7v"]
+[ext_resource type="AudioStream" uid="uid://dcs8bq0am224i" path="res://sounds/ui-navigate.wav" id="4_bxyxt"]
 [ext_resource type="Texture2D" uid="uid://o74yrnk02xmv" path="res://images/icons/arrow-right.png" id="5_vtpjq"]
+[ext_resource type="AudioStream" uid="uid://dlwjv8nxymfkd" path="res://sounds/accept.wav" id="7_rpkqu"]
 
 [node name="AvatarSelector" type="Control"]
 layout_mode = 3
@@ -30,6 +31,9 @@ layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("2_xagrr")
 icon = ExtResource("3_ooxca")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VBoxContainer2/HBoxContainer/PrevBtn"]
+stream = ExtResource("4_bxyxt")
 
 [node name="Panel" type="Panel" parent="VBoxContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(180, 200)
@@ -70,9 +74,16 @@ theme_override_font_sizes/font_size = 15
 [node name="SelectBtn" type="Button" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_xagrr")
-theme_override_fonts/font = ExtResource("4_lim7v")
 theme_override_font_sizes/font_size = 25
 text = "Select"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VBoxContainer2/VBoxContainer/SelectBtn"]
+stream = ExtResource("7_rpkqu")
+volume_db = 2.971
+pitch_scale = 1.8
+autoplay = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="pressed" from="VBoxContainer2/HBoxContainer/PrevBtn" to="." method="_on_prev_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer2/HBoxContainer/NextBtn" to="." method="_on_next_btn_pressed"]
