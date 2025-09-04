@@ -173,7 +173,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_7aall")
 }],
 "loop": true,
-"name": &"jump-end",
+"name": &"jump_end",
 "speed": 5.0
 }, {
 "frames": [{
@@ -190,7 +190,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_c5iut")
 }],
 "loop": true,
-"name": &"jump-start",
+"name": &"jump_start",
 "speed": 5.0
 }, {
 "frames": [{
