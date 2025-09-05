@@ -567,7 +567,7 @@ tile_set = ExtResource("1_f8jx3")
 collision_visibility_mode = 1
 
 [node name="Player1" parent="." instance=ExtResource("7_a0j7u")]
-position = Vector2(43, 8)
+position = Vector2(-286, 57)
 lock_rotation = true
 
 [node name="Camera2D" type="Camera2D" parent="Player1"]
@@ -576,6 +576,7 @@ position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
 [node name="Rope" parent="." instance=ExtResource("8_1lfo8")]
+position = Vector2(-324, 55)
 rotation = -1.5708
 collision_layer = 2
 collision_mask = 2
@@ -584,7 +585,7 @@ node_a_path = NodePath("../Player1")
 node_b_path = NodePath("../Player2")
 
 [node name="Player2" parent="." instance=ExtResource("7_a0j7u")]
-position = Vector2(245, 8)
+position = Vector2(-84, 57)
 lock_rotation = true
 
 [node name="Hud" parent="." instance=ExtResource("10_x6ynn")]
@@ -593,3 +594,11 @@ offset_top = -143.0
 offset_right = -235.0
 offset_bottom = -143.0
 scale = Vector2(0.600001, 0.64)
+
+[node name="Points" type="Node" parent="."]
+
+[node name="End" type="Node2D" parent="Points"]
+position = Vector2(580, 76)
+
+[node name="Start" type="Node2D" parent="Points"]
+position = Vector2(-573, -223)

@@ -5,7 +5,13 @@ extends Node2D
 @onready var hud = $Hud
 @onready var camera = $Player1/Camera2D
 
+# camera limiting points
+@onready var limit_start = $Points/Start
+@onready var limit_end = $Points/End
+
+
 func _ready() -> void:
+	set_camera_limits()
 	var player1 = get_node("Player1")
 	var player2 = get_node("Player2")
 	
@@ -15,3 +21,8 @@ func _ready() -> void:
 	player1.set_player_avataar(config['Player1']['avataar'])
 	player2.set_player_avataar(config['Player2']['avataar'])
 	
+func set_camera_limits():
+	camera.limit_left = limit_start.position.x
+	camera.limit_right = limit_end.position.x
+	camera.limit_bottom = limit_end.position.y
+	camera.limit_top = limit_start.position.y
