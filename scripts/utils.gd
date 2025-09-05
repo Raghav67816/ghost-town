@@ -9,5 +9,5 @@ func play_ui_sound(audio_stream_player: AudioStreamPlayer, _type: String):
 		audio_stream_player.play()
 		
 	elif _type == constants.UI_NAVIGATE:
-		audio_stream_player.stream = constants.UI_NAVIGATE_SOUND
+		audio_stream_player.stream = load(constants.UI_NAVIGATE_SOUND)
 		audio_stream_player.play()

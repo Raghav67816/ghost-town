@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://cbtouodl81vpd"]
+[gd_scene load_steps=13 format=4 uid="uid://cbtouodl81vpd"]
 
 [ext_resource type="Script" path="res://scripts/player_setup.gd" id="1_4ikys"]
 [ext_resource type="TileSet" uid="uid://mqbiexlehuju" path="res://tilemaps/bg_mud.tres" id="1_f8jx3"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dhagsqqdis5tk" path="res://components/player.tscn" id="7_a0j7u"]
 [ext_resource type="PackedScene" uid="uid://bebft6jtj3fss" path="res://components/Rope.tscn" id="8_1lfo8"]
 [ext_resource type="Script" path="res://scripts/rope.gd" id="9_ko03k"]
+[ext_resource type="PackedScene" uid="uid://5s7bvh2731a1" path="res://components/HUD.tscn" id="10_x6ynn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0rebc"]
 texture = ExtResource("1_lxeod")
@@ -568,6 +569,13 @@ collision_visibility_mode = 1
 [node name="Player1" parent="." instance=ExtResource("7_a0j7u")]
 position = Vector2(43, 8)
 lock_rotation = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player1"]
+follow_viewport_enabled = true
+
+[node name="Hud" parent="Player1/CanvasLayer" instance=ExtResource("10_x6ynn")]
+scale = Vector2(0.520001, 0.633683)
+size_flags_horizontal = 0
 
 [node name="Camera2D" type="Camera2D" parent="Player1"]
 zoom = Vector2(2, 2)
