@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var config = PlayerconfigAutoload.player_config
 @onready var bindings = InitInput.keyboard_bindings
+@onready var hud = $Hud
+@onready var camera = $Player1/Camera2D
 
 func _ready() -> void:
 	var player1 = get_node("Player1")
@@ -12,3 +14,4 @@ func _ready() -> void:
 	
 	player1.set_player_avataar(config['Player1']['avataar'])
 	player2.set_player_avataar(config['Player2']['avataar'])
+	

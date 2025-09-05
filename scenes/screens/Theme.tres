@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://dxqfvgk3f6y5b"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dxqfvgk3f6y5b"]
 
 [ext_resource type="FontFile" uid="uid://bhirij7c6y0av" path="res://art/BigPixelDemo-75ww.ttf" id="1_jkl3h"]
 
@@ -53,6 +53,9 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5kx2p"]
+bg_color = Color(0.999999, 0.19449, 0.143093, 1)
+
 [resource]
 Button/fonts/font = ExtResource("1_jkl3h")
 Button/styles/hover = SubResource("StyleBoxFlat_s0gyf")
@@ -61,3 +64,5 @@ LineEdit/fonts/font = ExtResource("1_jkl3h")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_pks7q")
 OptionButton/fonts/font = ExtResource("1_jkl3h")
 Panel/styles/panel = SubResource("StyleBoxFlat_3dcf8")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_3dcf8")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_5kx2p")

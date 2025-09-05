@@ -7,6 +7,8 @@ const JUMP_FORCE = -2000.0
 @onready var collision_shape = $CollisionShape2D
 @onready var ray = $RayCast2D
 @onready var player_sprite = $AnimatedSprite2D
+@onready var hud = $"../Hud"
+@onready var player_name_label = $PlayerName
 
 var is_attacking = false
 
@@ -24,9 +26,10 @@ var player_bindings = {}
 func set_binding(_bindings: Dictionary, player_name: String, binding_id: String):
 	
 	player_bindings[player_name] = _bindings
-	
-	var player_name_label = $PlayerName
 	player_name_label.text = player_name
+	hud.init_hud(
+		player_name_label.text, 100.0, 50.0
+	)
 	
 	for action in player_bindings[player_name].keys():
 		var action_name = self.name + "_" + binding_id + "_" + action
