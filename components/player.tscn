@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhagsqqdis5tk"]
+[gd_scene load_steps=5 format=3 uid="uid://dhagsqqdis5tk"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_6nw7k"]
-[ext_resource type="SpriteFrames" uid="uid://b7f7dj054k4cx" path="res://sprite frames/red idle.tres" id="2_oy6i0"]
+[ext_resource type="SpriteFrames" uid="uid://u4i0jn2pcmvw" path="res://sprite frames/blue idle.tres" id="2_0ynll"]
+[ext_resource type="AudioStream" uid="uid://dj5oootbe7lv" path="res://sounds/sword_swing.mp3" id="3_mwrck"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iws1g"]
 size = Vector2(20, 25)
@@ -13,8 +14,8 @@ center_of_mass = Vector2(0, 10)
 script = ExtResource("1_6nw7k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("2_oy6i0")
-animation = &"jump_end"
+sprite_frames = ExtResource("2_0ynll")
+animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 11.5)
@@ -32,5 +33,11 @@ fit_content = true
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(1, 30)
 
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]
+[node name="DustSpawn" type="Node2D" parent="."]
+position = Vector2(0, 24)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mwrck")
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]

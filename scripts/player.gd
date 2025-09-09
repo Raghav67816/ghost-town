@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 const SPEED = 2500.0
-const JUMP_FORCE = -2000.0
+const JUMP_FORCE = -3500.0
 
 @onready var anim = $AnimatedSprite2D
 @onready var collision_shape = $CollisionShape2D
@@ -9,6 +9,11 @@ const JUMP_FORCE = -2000.0
 @onready var player_sprite = $AnimatedSprite2D
 @onready var hud = $"../Hud"
 @onready var player_name_label = $PlayerName
+@onready var dust_spawn_point = $DustSpawn
+@onready var dust_particle = preload("res://components/dust.tscn")
+@onready var audio_player = $AudioStreamPlayer2D
+
+@onready var utils = Utils
 
 var is_attacking = false
 
@@ -81,15 +86,21 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if Input.is_action_just_pressed(player_actions['jump']) and is_attacking == false:
 		if _is_on_floor():
 			anim.play("jump_start")
-			linear_velocity.y = -1500
+			linear_velocity.y = JUMP_FORCE
 			
 		
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed(player_actions['attack']) and is_attacking == false:
 		is_attacking = true
 		anim.play("attack")
+		utils.play_player_sound(audio_player, "attack", true)
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if anim.animation == "attack":
 		is_attacking = false
 		anim.play("idle")
+	
+	if anim.animation == "jump_start":
+		print("Dust")
+		var dust_instance = dust_particle.instantiate()
+		dust_instance.global_position = dust_spawn_point.global_position

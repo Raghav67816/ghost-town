@@ -1,0 +1,29 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://c5h2sn1l6nstb"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u2dvo"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lphmm"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_txe4u"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n07v7"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_u2dvo")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_lphmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_txe4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_n07v7")
+}],
+"loop": false,
+"name": &"trigger",
+"speed": 8.0
+}]

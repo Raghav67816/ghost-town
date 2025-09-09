@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bhirij7c6y0av"
-path="res://.godot/imported/BigPixelDemo-75ww.ttf-a17e38b53ababe5e4d052c26de1b3a7f.fontdata"
+uid="uid://bgkjhcjee6ljw"
+path="res://.godot/imported/KarmaticArcade-6Yrp1.ttf-3736b57ae2631190d68ebb0e340aafc5.fontdata"
 
 [deps]
 
-source_file="res://art/BigPixelDemo-75ww.ttf"
-dest_files=["res://.godot/imported/BigPixelDemo-75ww.ttf-a17e38b53ababe5e4d052c26de1b3a7f.fontdata"]
+source_file="res://art/fonts/KarmaticArcade-6Yrp1.ttf"
+dest_files=["res://.godot/imported/KarmaticArcade-6Yrp1.ttf-3736b57ae2631190d68ebb0e340aafc5.fontdata"]
 
 [params]
 

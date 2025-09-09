@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b5ehknry6c5uy" path="res://art/bg/bg.png" id="2_jhs7a"]
 [ext_resource type="Theme" uid="uid://dxqfvgk3f6y5b" path="res://scenes/screens/Theme.tres" id="3_frbke"]
 [ext_resource type="TileSet" uid="uid://dj28at3qv1hgm" path="res://tilemaps/props.tres" id="3_qpscf"]
-[ext_resource type="FontFile" uid="uid://bgkjhcjee6ljw" path="res://art/KarmaticArcade-6Yrp1.ttf" id="4_s0lo5"]
+[ext_resource type="FontFile" uid="uid://bgkjhcjee6ljw" path="res://art/fonts/KarmaticArcade-6Yrp1.ttf" id="4_s0lo5"]
 
 [sub_resource type="Environment" id="Environment_52uux"]
 background_mode = 3
