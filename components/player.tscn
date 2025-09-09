@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_6nw7k"]
 [ext_resource type="SpriteFrames" uid="uid://u4i0jn2pcmvw" path="res://sprite frames/blue idle.tres" id="2_0ynll"]
-[ext_resource type="AudioStream" uid="uid://dj5oootbe7lv" path="res://sounds/sword_swing.mp3" id="3_mwrck"]
+[ext_resource type="AudioStream" uid="uid://ds0bt5emt42mj" path="res://sounds/jump.wav" id="3_4w0iu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iws1g"]
 size = Vector2(20, 25)
@@ -37,7 +37,8 @@ target_position = Vector2(1, 30)
 position = Vector2(0, 24)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_mwrck")
+stream = ExtResource("3_4w0iu")
+pitch_scale = 1.2
 
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

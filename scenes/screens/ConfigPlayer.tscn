@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=4 uid="uid://cpeqjkjt1p4hs"]
+[gd_scene load_steps=7 format=4 uid="uid://cpeqjkjt1p4hs"]
 
 [ext_resource type="Script" path="res://scripts/config_player.gd" id="1_3fx2w"]
 [ext_resource type="PackedScene" uid="uid://crrkryowd5yo4" path="res://components/AvatarSelector.tscn" id="1_12jqw"]
-[ext_resource type="FontFile" uid="uid://bmsriflmactn6" path="res://art/Pixel Game.otf" id="1_msffx"]
 [ext_resource type="Texture2D" uid="uid://b5ehknry6c5uy" path="res://art/bg/bg.png" id="2_vyfwo"]
 [ext_resource type="TileSet" uid="uid://dxan78bq38vy4" path="res://tilemaps/ground.tres" id="3_5ryo4"]
 [ext_resource type="TileSet" uid="uid://dj28at3qv1hgm" path="res://tilemaps/props.tres" id="4_st7ly"]
@@ -96,12 +95,11 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -155.0
-offset_top = 46.0
-offset_right = 160.0
-offset_bottom = 115.0
+offset_left = -224.0
+offset_top = 31.0
+offset_right = 225.0
+offset_bottom = 100.0
 grow_horizontal = 2
-theme_override_fonts/normal_font = ExtResource("1_msffx")
 theme_override_font_sizes/normal_font_size = 40
 text = "SELECT YOUR AVATARS"
 fit_content = true

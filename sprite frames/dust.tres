@@ -1,27 +1,24 @@
 [gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://c5h2sn1l6nstb"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u2dvo"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lphmm"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_txe4u"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n07v7"]
+[ext_resource type="Texture2D" uid="uid://dwpigagodkc86" path="res://art/dust/dust1.png" id="1_vcq2b"]
+[ext_resource type="Texture2D" uid="uid://xpc47w4w4ae5" path="res://art/dust/dust2.png" id="2_qke5b"]
+[ext_resource type="Texture2D" uid="uid://desps3uxviemb" path="res://art/dust/dust3.png" id="3_wrssy"]
+[ext_resource type="Texture2D" uid="uid://dgda8ccvrcwlt" path="res://art/dust/dust4.png" id="4_y68iw"]
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("CompressedTexture2D_u2dvo")
+"texture": ExtResource("1_vcq2b")
 }, {
 "duration": 1.0,
-"texture": SubResource("CompressedTexture2D_lphmm")
+"texture": ExtResource("2_qke5b")
 }, {
 "duration": 1.0,
-"texture": SubResource("CompressedTexture2D_txe4u")
+"texture": ExtResource("3_wrssy")
 }, {
 "duration": 1.0,
-"texture": SubResource("CompressedTexture2D_n07v7")
+"texture": ExtResource("4_y68iw")
 }],
 "loop": false,
 "name": &"trigger",

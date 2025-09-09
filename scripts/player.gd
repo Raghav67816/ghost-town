@@ -87,13 +87,14 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 		if _is_on_floor():
 			anim.play("jump_start")
 			linear_velocity.y = JUMP_FORCE
+			utils.play_player_sound(audio_player, "jump", true, Vector2(1.2, 1.5))
 			
 		
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed(player_actions['attack']) and is_attacking == false:
 		is_attacking = true
 		anim.play("attack")
-		utils.play_player_sound(audio_player, "attack", true)
+		utils.play_player_sound(audio_player, "attack", true, Vector2(1.5, 2.0))
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if anim.animation == "attack":
