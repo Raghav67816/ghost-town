@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddyxusipllpgn"]
+
+[ext_resource type="Texture2D" uid="uid://dpqo2o08nd8d0" path="res://art/Sign Board.png" id="1_3yeup"]
+[ext_resource type="Script" path="res://scripts/sign_board.gd" id="3_6xi26"]
+
+[node name="SignBoard" type="Sprite2D"]
+position = Vector2(33, 34)
+scale = Vector2(2.03125, 2.0625)
+texture = ExtResource("1_3yeup")
+script = ExtResource("3_6xi26")
+
+[node name="Sign" type="Sprite2D" parent="."]
+position = Vector2(-0.738462, -9.45455)
+scale = Vector2(0.487385, 0.189091)
+flip_h = true

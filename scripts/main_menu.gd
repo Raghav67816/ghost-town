@@ -1,16 +1,23 @@
 extends Control
 
 @onready var audio_stream_player = $AudioStreamPlayer
+@onready var main_menu_content = $MainMenuContent
+@onready var config_player_content = $ConfigPlayer
 
 var utils = Utils
 var constants = Constants
 var config_player_scene = "res://scenes/screens/ConfigPlayer.tscn"
 var main_menu = "res://scenes/screens/MainMenu.tscn"
 
+
+func _ready() -> void:
+	$BGMPlayer.stream = load("res://sounds/bgm-menu.mp3")
+	$BGMPlayer.play()
+
 func _on_start_game_btn_pressed() -> void:
 	utils.play_ui_sound(audio_stream_player, constants.UI_ACCEPT)
-	get_tree().change_scene_to_file(config_player_scene)
-	
+	main_menu_content.visible = false
+	config_player_content.visible = true
 
 func _on_options_btn_pressed() -> void:
 	utils.play_ui_sound(audio_stream_player, constants.UI_ACCEPT)
