@@ -2,7 +2,7 @@ extends Control
 
 @onready var audio_stream_player = $AudioStreamPlayer
 @onready var main_menu_content = $MainMenuContent
-@onready var config_player_content = $ConfigPlayer
+@onready var config_player_content = $ConfigPlayerContent
 
 var utils = Utils
 var constants = Constants
@@ -11,6 +11,7 @@ var main_menu = "res://scenes/screens/MainMenu.tscn"
 
 
 func _ready() -> void:
+	config_player_content.visible = false
 	$BGMPlayer.stream = load("res://sounds/bgm-menu.mp3")
 	$BGMPlayer.play()
 

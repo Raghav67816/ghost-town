@@ -18,7 +18,7 @@ sprite_frames = ExtResource("2_0ynll")
 animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 11.5)
+position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_iws1g")
 
 [node name="PlayerName" type="RichTextLabel" parent="."]

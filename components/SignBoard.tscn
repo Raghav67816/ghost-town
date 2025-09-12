@@ -12,4 +12,3 @@ script = ExtResource("3_6xi26")
 [node name="Sign" type="Sprite2D" parent="."]
 position = Vector2(-0.738462, -9.45455)
 scale = Vector2(0.487385, 0.189091)
-flip_h = true

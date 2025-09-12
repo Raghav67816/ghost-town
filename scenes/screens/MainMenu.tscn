@@ -33,7 +33,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_omo11")
 
-[node name="MainMenuContent" type="Node" parent="."]
+[node name="MainMenuContent" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="MainMenuContent"]
 position = Vector2(588, 417)
@@ -41,6 +47,7 @@ scale = Vector2(2.81042, 3.12132)
 texture = ExtResource("2_jhs7a")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenuContent"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -101,6 +108,7 @@ position = Vector2(578, 324)
 zoom = Vector2(1.1, 1.1)
 
 [node name="Title" type="RichTextLabel" parent="MainMenuContent"]
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -120,7 +128,16 @@ environment = SubResource("Environment_52uux")
 
 [node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
 
-[node name="ConfigPlayer" parent="." instance=ExtResource("7_ve1p2")]
+[node name="ConfigPlayerContent" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ConfigPlayer" parent="ConfigPlayerContent" instance=ExtResource("7_ve1p2")]
 layout_mode = 1
 offset_left = 3.0
 offset_top = 10.0
