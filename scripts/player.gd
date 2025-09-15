@@ -7,7 +7,6 @@ const JUMP_FORCE = -3500.0
 @onready var collision_shape = $CollisionShape2D
 @onready var ray = $RayCast2D
 @onready var player_sprite = $AnimatedSprite2D
-@onready var hud = $"../Hud"
 @onready var player_name_label = $PlayerName
 @onready var dust_spawn_point = $DustSpawn
 @onready var dust_particle = preload("res://components/dust.tscn")
@@ -32,9 +31,6 @@ func set_binding(_bindings: Dictionary, player_name: String, binding_id: String)
 	
 	player_bindings[player_name] = _bindings
 	player_name_label.text = player_name
-	hud.init_hud(
-		player_name_label.text, 100.0, 50.0
-	)
 	
 	for action in player_bindings[player_name].keys():
 		var action_name = self.name + "_" + binding_id + "_" + action

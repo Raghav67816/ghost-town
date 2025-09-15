@@ -21,8 +21,11 @@ func _ready() -> void:
 	player1.set_player_avataar(config['Player1']['avataar'])
 	player2.set_player_avataar(config['Player2']['avataar'])
 	
+	hud.init_stats(config['Player1']['name'], config['Player2']['name'])
+	
 func set_camera_limits():
 	camera.limit_left = limit_start.position.x
 	camera.limit_right = limit_end.position.x
 	camera.limit_bottom = limit_end.position.y
 	camera.limit_top = limit_start.position.y
+	
