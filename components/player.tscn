@@ -9,6 +9,7 @@ size = Vector2(20, 25)
 
 [node name="RigidBody2D" type="RigidBody2D"]
 position = Vector2(4, 8)
+collision_layer = 2
 script = ExtResource("1_6nw7k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

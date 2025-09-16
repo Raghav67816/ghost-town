@@ -5,7 +5,6 @@
 [node name="Rope" type="RigidBody2D"]
 position = Vector2(5, 6)
 collision_layer = 4
-collision_mask = 4
 
 [node name="P1" type="PinJoint2D" parent="."]
 position = Vector2(0, 49)

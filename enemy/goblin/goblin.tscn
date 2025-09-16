@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtar6mvp2rpua"]
+
+[ext_resource type="Script" path="res://enemy/goblin/goblin.gd" id="1_1cglt"]
+[ext_resource type="SpriteFrames" uid="uid://dgkmldwn5ubf2" path="res://enemy/animations/goblin.tres" id="2_3rklh"]
+[ext_resource type="Theme" uid="uid://dxqfvgk3f6y5b" path="res://scenes/screens/Theme.tres" id="7_ldj8f"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xqw5y"]
+radius = 7.33333
+height = 24.6667
+
+[node name="Goblin" type="CharacterBody2D"]
+script = ExtResource("1_1cglt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("2_3rklh")
+animation = &"attack"
+
+[node name="Health" type="ProgressBar" parent="."]
+offset_left = -42.0
+offset_top = -39.0
+offset_right = -2.0
+offset_bottom = 1.0
+scale = Vector2(2.09071, 0.201049)
+theme = ExtResource("7_ldj8f")
+value = 100.0
+show_percentage = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 36)
+scale = Vector2(3, 3)
+shape = SubResource("CapsuleShape2D_xqw5y")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(-189, 0)
+collision_mask = 2
