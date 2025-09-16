@@ -11,6 +11,7 @@ extends Node2D
 
 
 func _ready() -> void:
+	hud.visible = true
 	set_camera_limits()
 	var player1 = get_node("Player1")
 	var player2 = get_node("Player2")

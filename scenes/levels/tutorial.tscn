@@ -21,7 +21,6 @@
 script = ExtResource("1_4ikys")
 
 [node name="ParallaxLayer" type="ParallaxBackground" parent="."]
-visible = false
 scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxLayer"]
@@ -100,7 +99,8 @@ tile_set = ExtResource("1_f8jx3")
 collision_visibility_mode = 2
 
 [node name="Player1" parent="." instance=ExtResource("7_a0j7u")]
-position = Vector2(-416, 53)
+position = Vector2(-416, 28)
+scale = Vector2(2, 2)
 lock_rotation = true
 
 [node name="Camera2D" type="Camera2D" parent="Player1"]
@@ -111,18 +111,18 @@ rotation_smoothing_enabled = true
 [node name="Rope" parent="." instance=ExtResource("8_1lfo8")]
 position = Vector2(-454, 51)
 rotation = -1.5708
-collision_layer = 2
-collision_mask = 2
 script = ExtResource("9_ko03k")
 node_a_path = NodePath("../Player1")
 node_b_path = NodePath("../Player2")
 
 [node name="Player2" parent="." instance=ExtResource("7_a0j7u")]
-position = Vector2(-214, 53)
+position = Vector2(-213, 29)
+scale = Vector2(2, 2)
 lock_rotation = true
 
 [node name="Hud" parent="." instance=ExtResource("10_x6ynn")]
 layer = 0
+visible = false
 scale = Vector2(1.083, 1)
 transform = Transform2D(1.083, 0, 0, 1, 0, 0)
 

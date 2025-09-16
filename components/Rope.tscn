@@ -4,12 +4,14 @@
 
 [node name="Rope" type="RigidBody2D"]
 position = Vector2(5, 6)
+collision_layer = 4
+collision_mask = 4
 
 [node name="P1" type="PinJoint2D" parent="."]
 position = Vector2(0, 49)
 node_b = NodePath("../1")
-bias = 0.9
-softness = 0.1
+bias = 0.5
+softness = 0.5
 
 [node name="1" parent="." instance=ExtResource("1_d4gbt")]
 position = Vector2(0, 63.141)
@@ -19,14 +21,15 @@ mass = 0.1
 position = Vector2(0, 138)
 node_a = NodePath("../3")
 node_b = NodePath("../4")
-bias = 0.9
-softness = 0.1
+bias = 0.5
+softness = 0.5
 
 [node name="12" type="PinJoint2D" parent="."]
 position = Vector2(0, 78)
 node_a = NodePath("../1")
 node_b = NodePath("../2")
-bias = 0.9
+bias = 0.5
+softness = 0.5
 
 [node name="2" parent="." instance=ExtResource("1_d4gbt")]
 position = Vector2(0, 93)
@@ -36,8 +39,8 @@ mass = 0.1
 position = Vector2(0, 108)
 node_a = NodePath("../2")
 node_b = NodePath("../3")
-bias = 0.9
-softness = 0.1
+bias = 0.5
+softness = 0.5
 
 [node name="3" parent="." instance=ExtResource("1_d4gbt")]
 position = Vector2(0, 123)
@@ -47,8 +50,8 @@ mass = 0.1
 position = Vector2(0, 168)
 node_a = NodePath("../4")
 node_b = NodePath("../5")
-bias = 0.9
-softness = 0.1
+bias = 0.5
+softness = 0.5
 
 [node name="4" parent="." instance=ExtResource("1_d4gbt")]
 position = Vector2(0, 153)
@@ -58,8 +61,8 @@ mass = 0.1
 position = Vector2(0, 197)
 node_a = NodePath("../5")
 node_b = NodePath("../6")
-bias = 0.9
-softness = 0.1
+bias = 0.5
+softness = 0.5
 
 [node name="5" parent="." instance=ExtResource("1_d4gbt")]
 position = Vector2(0, 183)
@@ -68,8 +71,8 @@ mass = 0.1
 [node name="P2" type="PinJoint2D" parent="."]
 position = Vector2(0, 227)
 node_a = NodePath("../6")
-bias = 0.9
-softness = 0.1
+bias = 0.5
+softness = 0.5
 
 [node name="6" parent="." instance=ExtResource("1_d4gbt")]
 position = Vector2(0, 213)
