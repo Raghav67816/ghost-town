@@ -5,14 +5,16 @@
 [ext_resource type="Theme" uid="uid://dxqfvgk3f6y5b" path="res://scenes/screens/Theme.tres" id="7_ldj8f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xqw5y"]
-radius = 7.33333
-height = 24.6667
+radius = 3.0
+height = 16.0
 
 [node name="Goblin" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 3
 script = ExtResource("1_1cglt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(3, 3)
+scale = Vector2(2, 2)
 sprite_frames = ExtResource("2_3rklh")
 animation = &"attack"
 
@@ -27,7 +29,7 @@ value = 100.0
 show_percentage = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 36)
+position = Vector2(3, 15)
 scale = Vector2(3, 3)
 shape = SubResource("CapsuleShape2D_xqw5y")
 

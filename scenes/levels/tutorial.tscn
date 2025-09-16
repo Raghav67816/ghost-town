@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://cbtouodl81vpd"]
+[gd_scene load_steps=18 format=4 uid="uid://cbtouodl81vpd"]
 
 [ext_resource type="Script" path="res://scripts/player_setup.gd" id="1_4ikys"]
 [ext_resource type="TileSet" uid="uid://mqbiexlehuju" path="res://tilemaps/bg_mud.tres" id="1_f8jx3"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://scripts/rope.gd" id="9_ko03k"]
 [ext_resource type="PackedScene" uid="uid://5s7bvh2731a1" path="res://components/HUD.tscn" id="10_x6ynn"]
 [ext_resource type="PackedScene" uid="uid://ddyxusipllpgn" path="res://components/SignBoard.tscn" id="11_sfn2n"]
+[ext_resource type="PackedScene" uid="uid://dtar6mvp2rpua" path="res://enemy/goblin/goblin.tscn" id="17_vecfq"]
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_4ikys")
@@ -110,6 +111,7 @@ rotation_smoothing_enabled = true
 [node name="Rope" parent="." instance=ExtResource("8_1lfo8")]
 position = Vector2(-451, 12)
 rotation = -1.5708
+collision_mask = 0
 mass = 0.5
 script = ExtResource("9_ko03k")
 node_a_path = NodePath("../Player1")
@@ -135,3 +137,6 @@ position = Vector2(1413, 76)
 position = Vector2(-570, -222)
 
 [node name="Instructions" type="Node" parent="."]
+
+[node name="Goblin" parent="." instance=ExtResource("17_vecfq")]
+position = Vector2(44, -202)
