@@ -16,3 +16,4 @@ func _ready():
 		# Assuming Rope has PinJoints or Line2D logic
 		$P1.node_a = node_a.get_path()
 		$P2.node_b = node_b.get_path()
+		

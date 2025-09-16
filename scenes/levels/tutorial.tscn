@@ -111,6 +111,7 @@ rotation_smoothing_enabled = true
 [node name="Rope" parent="." instance=ExtResource("8_1lfo8")]
 position = Vector2(-454, 51)
 rotation = -1.5708
+mass = 0.5
 script = ExtResource("9_ko03k")
 node_a_path = NodePath("../Player1")
 node_b_path = NodePath("../Player2")

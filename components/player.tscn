@@ -9,8 +9,6 @@ size = Vector2(20, 25)
 
 [node name="RigidBody2D" type="RigidBody2D"]
 position = Vector2(4, 8)
-center_of_mass_mode = 1
-center_of_mass = Vector2(0, 10)
 script = ExtResource("1_6nw7k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -31,7 +29,7 @@ text = "Player 1"
 fit_content = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(1, 30)
+target_position = Vector2(1, 25)
 
 [node name="DustSpawn" type="Node2D" parent="."]
 position = Vector2(0, 24)

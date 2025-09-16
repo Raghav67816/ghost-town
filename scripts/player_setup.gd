@@ -9,6 +9,10 @@ extends Node2D
 @onready var limit_start = $Points/Start
 @onready var limit_end = $Points/End
 
+@onready var player1 = $Player1
+@onready var player2 = $Player2
+
+@onready var rope = $Rope
 
 func _ready() -> void:
 	hud.visible = true
@@ -24,9 +28,11 @@ func _ready() -> void:
 	
 	hud.init_stats(config['Player1']['name'], config['Player2']['name'])
 	
+	rope.node_a.position = player1.position/2
+	rope.node_b.position = player2.position/2
+	
 func set_camera_limits():
 	camera.limit_left = limit_start.position.x
 	camera.limit_right = limit_end.position.x
 	camera.limit_bottom = limit_end.position.y
-	camera.limit_top = limit_start.position.y
-	
+	camera.limit_top = limit_start.position.y	
