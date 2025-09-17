@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dtar6mvp2rpua"]
+[gd_scene load_steps=8 format=3 uid="uid://dtar6mvp2rpua"]
 
-[ext_resource type="Script" path="res://enemy/goblin/goblin.gd" id="1_1cglt"]
 [ext_resource type="SpriteFrames" uid="uid://dgkmldwn5ubf2" path="res://enemy/animations/goblin.tres" id="2_3rklh"]
+[ext_resource type="Script" path="res://addons/behaviour_toolkit/behaviour_tree/bt_behaviour.gd" id="3_ngcnj"]
+[ext_resource type="Script" path="res://addons/behaviour_toolkit/finite_state_machine/fsm.gd" id="4_4whxm"]
+[ext_resource type="Script" path="res://addons/behaviour_toolkit/finite_state_machine/fsm_state.gd" id="5_j86ga"]
+[ext_resource type="Script" path="res://addons/behaviour_toolkit/finite_state_machine/fsm_transition.gd" id="6_6gvxu"]
 [ext_resource type="Theme" uid="uid://dxqfvgk3f6y5b" path="res://scenes/screens/Theme.tres" id="7_ldj8f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xqw5y"]
@@ -11,7 +14,6 @@ height = 16.0
 [node name="Goblin" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 3
-script = ExtResource("1_1cglt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
@@ -36,3 +38,45 @@ shape = SubResource("CapsuleShape2D_xqw5y")
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(-189, 0)
 collision_mask = 2
+
+[node name="BTBehaviour" type="Node" parent="."]
+script = ExtResource("3_ngcnj")
+
+[node name="FiniteStateMachine" type="Node" parent="BTBehaviour" node_paths=PackedStringArray("initial_state")]
+script = ExtResource("4_4whxm")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="BTBehaviour/FiniteStateMachine"]
+script = ExtResource("5_j86ga")
+
+[node name="Idle-Run" type="Node" parent="BTBehaviour/FiniteStateMachine/Idle" node_paths=PackedStringArray("next_state")]
+script = ExtResource("6_6gvxu")
+next_state = NodePath("")
+
+[node name="Idle Dead" type="Node" parent="BTBehaviour/FiniteStateMachine/Idle" node_paths=PackedStringArray("next_state")]
+script = ExtResource("6_6gvxu")
+next_state = NodePath("../../Dead")
+
+[node name="Attack" type="Node" parent="BTBehaviour/FiniteStateMachine"]
+script = ExtResource("5_j86ga")
+
+[node name="Attack Dead" type="Node" parent="BTBehaviour/FiniteStateMachine/Attack"]
+script = ExtResource("6_6gvxu")
+
+[node name="Attack Idle" type="Node" parent="BTBehaviour/FiniteStateMachine/Attack"]
+script = ExtResource("6_6gvxu")
+
+[node name="Run" type="Node" parent="BTBehaviour/FiniteStateMachine"]
+script = ExtResource("5_j86ga")
+
+[node name="Run Dead" type="Node" parent="BTBehaviour/FiniteStateMachine/Run"]
+script = ExtResource("6_6gvxu")
+
+[node name="Run Attack" type="Node" parent="BTBehaviour/FiniteStateMachine/Run"]
+script = ExtResource("6_6gvxu")
+
+[node name="Run Idle" type="Node" parent="BTBehaviour/FiniteStateMachine/Run"]
+script = ExtResource("6_6gvxu")
+
+[node name="Dead" type="Node" parent="BTBehaviour/FiniteStateMachine"]
+script = ExtResource("5_j86ga")
