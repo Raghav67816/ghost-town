@@ -139,4 +139,4 @@ position = Vector2(-570, -222)
 [node name="Instructions" type="Node" parent="."]
 
 [node name="Goblin" parent="." instance=ExtResource("17_vecfq")]
-position = Vector2(44, -202)
+position = Vector2(351, 7)
